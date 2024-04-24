@@ -54,7 +54,7 @@ net.Receive("use", function()
     end
     medbut:SetPos(ScrW()/4-100,ScrH()/4 )
     medbut:SetSize(200,50)
-    medbut:SetText("meds = 15 materials")
+    medbut:SetText("Meds = 15 materials")
     medbut.DoClick = function()
 
 
@@ -75,7 +75,7 @@ net.Receive("use", function()
 
     knifebut:SetPos(ScrW()/4-100,ScrH()/4-200 )
     knifebut:SetSize(200,50)
-    knifebut:SetText("knife = 35 materials")
+    knifebut:SetText("Knife = 35 materials")
     knifebut.DoClick = function()
 
         if material >= 35 then
@@ -95,7 +95,7 @@ net.Receive("use", function()
 
     m1911b:SetPos(ScrW()/4-100,ScrH()/4+200 )
     m1911b:SetSize(200,50)
-    m1911b:SetText("m1911 = 50 materials")
+    m1911b:SetText("M1911 = 50 materials")
     m1911b.DoClick = function()
 
         if material >= 50 then
@@ -115,7 +115,7 @@ net.Receive("use", function()
 
     bouncerb:SetPos(ScrW()/4-100,ScrH()/4+400 )
     bouncerb:SetSize(200,50)
-    bouncerb:SetText("bouncer = 40 materials")
+    bouncerb:SetText("Bouncer = 40 materials")
     bouncerb.DoClick = function()
 
         if material >= 40 then
@@ -135,7 +135,7 @@ net.Receive("use", function()
 
     armorb:SetPos(ScrW()/4-100,ScrH()/4+600 )
     armorb:SetSize(200,50)
-    armorb:SetText("suit = 10 materials")
+    armorb:SetText("Suit Energy = 10 materials")
     armorb.DoClick = function()
 
         if material >= 10 then
@@ -155,7 +155,7 @@ net.Receive("use", function()
 
     ammob:SetPos(ScrW()/2-100,ScrH()/4-200 )
     ammob:SetSize(200,50)
-    ammob:SetText("pulse ammo = 5 materials")
+    ammob:SetText("Pulse Ammo = 5 materials")
     ammob.DoClick = function()
 
         if material >= 5 then

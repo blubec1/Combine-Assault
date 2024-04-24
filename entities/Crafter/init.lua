@@ -18,8 +18,6 @@ function ENT:Initialize()
     self:SetMoveType(MOVETYPE_NONE)
     self:SetSolid(SOLID_VPHYSICS)
     self:SetCollisionGroup(COLLISION_GROUP_NONE)
-
-    self:GetPhysicsObject():Wake()
     
     self.timer = CurTime()
     timer.Create("mats", 1, 0, function()

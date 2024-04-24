@@ -46,7 +46,8 @@ team.SetUp(4, "undecided", Color(0,0,0,0), true)
 team.SetClass(1, {"Combine Soldier","Combine Shotgunner","Combine Suppressor","Combine Ordinal"})
 team.SetClass(3, {"Resistance Leader"})
 
-team.SetSpawnPoint(1, {"info_terror"})
+team.SetSpawnPoint(1, "info_null")
+-- need to find entities that will work as spawnpoints
 
 RunConsoleCommand("sv_alltalk", 0)
 -- ghosts can be heard, need more attention (fixed?)
@@ -65,11 +66,8 @@ end
 
 net.Receive("BodySwitch", function()
 
-    local pos = net.ReadTable()
-    entemp:SetModel("models/daemon_alyx/players/male_citizen_10.mdl")
-    entemp:SetPos(pos)
-    entemp:Activate()
-    entemp:Spawn()
+    local ent = net.ReadTable()
+    ent:SetModel("models/daemon_alyx/players/male_citizen_10.mdl")
 
 end)
 
@@ -123,6 +121,7 @@ function GM:PlayerInitialSpawn(ply)
     ply:SetTeam(4)
     if getRoundStatus() == 0 then
 
+        ply:Kill()
         net.Start("Dframe")
         net.Send(ply)
 
@@ -137,9 +136,10 @@ function GM:PlayerInitialSpawn(ply)
 
 end
 
---test by modifying gm_construct with a door and a button
+print("pggju")
 
-function GM:PlayerUse(ply,ent)
+--test by modifying gm_construct with a door and a button
+hook.Add("PlayerUse", "idk", function(ply,ent) 
 
     local tr = util.TraceHull( {
 	    start = ply:GetShootPos(),
@@ -149,20 +149,19 @@ function GM:PlayerUse(ply,ent)
 	    maxs = Vector( 10, 10, 10 ),
     } )
 
+    print("udgh")
+
     if ent:GetClass() == "func_button" &&  tr.Entity:GetModel() == "models/props_combine/combinebutton.mdl" then 
 
         if  ply:GetActiveWeapon():GetPrintName() != "Combine Keycard" then
         
-            print("uidsgh")
             return false
 
         end
 
     end
 
-end
-
---rewrite this so it uses ENT:Fire() and uses the input press, but first, need to lock the button in the map to recognize its a keycard reader
+end)
 
 
 /*
@@ -184,8 +183,6 @@ hook.Add("Think", "RoundStarter", function()
         if checkReadyState() then
         
             sendClassPrompts()
-
-            print("uwu")
 
         timer.Create("RoundStarter", 15, 1, function() 
     

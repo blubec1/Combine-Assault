@@ -3,7 +3,7 @@ AddCSLuaFile()
 SWEP.Author = "Bluker"
 SWEP.Base = "weapon_base"
 SWEP.PrintName = "Combine Keycard"
-SWEP.ViewModel = "models/weapons/v_pistol.mdl" --temp model
+SWEP.ViewModel = "models/weapons/v_pistol.mdl" --temp model, need to find a proper model
 SWEP.WorldModel = "models/weapons/v_pistol.mdl" --temp model
 SWEP.DrawCrosshair = false 
 SWEP.Spawnable = true

@@ -27,9 +27,8 @@ hook.Add( "PlayerButtonDown", "Recruit_Interface", function( ply, button )
 
         ply:SetModel(ent:GetModel())
         net.Start("BodySwitch")
-        net.WriteTable(pos)
-        net.Send(ply)
-        ent:Remove()
+        net.WriteEntity(ent)
+        net.SendToServer()
         
     local frame = vgui.Create("DFrame")
     closebutton:SetPos(ScrW()/2-100,ScrH()/2)
